@@ -1,18 +1,14 @@
 def max_subarray(arr):
+    n = len(arr)
     max_sum = float('-inf')
-    current_sum = 0
-    start = end = s = 0
+    best_subarray = []
 
-    for i in range(len(arr)):
-        current_sum += arr[i]
 
-        if current_sum > max_sum:
-            max_sum = current_sum
-            start = s
-            end = i
+    for i in range(n):
+        for j in range(i, n):  
+            current_sum = sum(arr[i:j+1]) 
+            if current_sum > max_sum: 
+                max_sum = current_sum
+                best_subarray = arr[i:j+1] 
 
-        if current_sum < 0:
-            current_sum = 0
-            s = i + 1
-
-    return arr[start:end+1], max_sum
+    return max_sum, best_subarray

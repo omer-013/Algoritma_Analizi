@@ -1,4 +1,4 @@
-def max_subarray_sum(arr):
+def max_subarray_optimized(arr):
     if len(arr) == 0:
         return 0, []
 
